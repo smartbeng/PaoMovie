@@ -1,0 +1,86 @@
+<html>
+<head>
+
+<script src="jquery-1.4.1.js"></script>
+</head>
+<body onload="show()"> 
+
+<input type="file" id="fff">
+<img id="img">
+
+<input type="button" value="tell" onClick="mobileCall('123456789')" />
+
+
+<input type="button" value="camrea" onClick="camraZbar()" />
+
+
+<input type="button" value="LocationList" onClick="getLocationList('json')" />
+
+<div id = "content"> </div> 
+
+
+
+<input type="button" value="mobileGetLocation" onClick="mobileGetLocation()" />
+
+<script type="text/javascript" charset=UTF-8">
+
+<!--页面电话号码传给客户端 -->
+  function mobileCall(tel){
+     window.android.mobileCall(tel);
+   }
+<!--调用客户端相机-->
+  function camraZbar(){
+     window.android.camraZbar();
+   }
+
+<!--客户端相机扫描完回传数据给页面-->
+function  setCamraZbar(str){
+   
+  document.getElementById("content").innerHTML +=str;
+
+   
+   }
+
+<!--客户端定位成功回传给页面经纬度-->
+  function setLocation(lation){
+    
+     document.getElementById("content").innerHTML +=lation;
+   
+   }
+   
+<!--页面列表酒店信息 json格式，客户端调用，点击地图模式传给客户端，在地图显示数据-->
+<!-- json [{"name":"汉庭酒店","geo":"121.34343,90.7877","address":"酒店地址"，"tel":"021-1234567"}]-->
+ function GetLocationList(json){
+     window.android.locationList(json);
+   }
+
+
+ function mobileGetLocation(){
+   window.android.mobileGetLocation();
+   }
+
+function show(){
+alert(window.navigator.userAgent)
+}
+
+$('#fff').change(function(e){
+
+    // 获取文件列表对象
+        var files = e.target.files || e.dataTransfer.files;
+        var file=files[0];
+        
+        var reader = new FileReader()
+                reader.onload = function (eReader) {
+                    
+               $('#img').attr('src',eReader.target.result); 
+                }
+                reader.readAsDataURL(file);
+
+})
+
+</script>
+
+</body>
+</html>
+
+

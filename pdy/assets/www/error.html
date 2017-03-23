@@ -1,0 +1,85 @@
+<html>
+<head>
+    <meta id="viewport" name="viewport" content="width=360, user-scalable=no">
+    <meta charset="utf-8" />
+    <script src="jquery-1.4.1.js"></script>
+    <style>
+        body {
+            margin:0px;
+        }
+        button {
+            border: solid 1px rgba(85, 85, 85, 0.3);
+            color: #555;
+            background-color: white;
+            font-size: 14px;
+            border-radius: 6px;
+            padding: 5px 15px 5px 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <div style="position:absolute;top:50%;margin-top:-100px;text-align:center;width:100%;">
+        <a href="#" id="aaa">
+            <img id="img" src="error.png" style="width:30%">
+
+        </a>
+        <br>
+        亲，您的手机网络不太顺畅喔~
+        <br>
+        <br>
+        <button>重新加载</button>
+    </div>
+
+
+    <script>
+
+        window.onerror = function (a, b, c) {
+            //alert('error:'+a+b+c);
+        };
+
+
+        function getSearchParam(key, dv, isRaw) {
+            var searchstr = window.location.search || '';
+            var regex = new RegExp('\\b' + key + '=([^&=]+)', 'mi');
+            var match = searchstr.match(regex);
+            if (match) {
+                if (isRaw) {
+                    return match[1];
+                } else {
+                    try {
+                        return window.decodeURIComponent(match[1]);
+                    } catch (e) {
+                        return '';
+                    }
+
+                }
+
+            } else {
+                return dv || '';
+            }
+
+        };
+
+
+
+        $('button').click(function () {
+            fff();
+        });
+
+        function fff() {
+
+            var href = getSearchParam('failingUrl', '', false);
+
+            window.location = href;
+
+
+        }
+
+
+        
+    </script>
+
+
+</body>
+</html>

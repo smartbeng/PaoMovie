@@ -1,0 +1,221 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:installLocation="preferExternal" android:versionCode="3" android:versionName="1.2" package="com.pdy.mobile">
+
+    <uses-sdk android:minSdkVersion="19" android:targetSdkVersion="25"/>
+
+    <uses-feature android:name="android.hardware.camera"/>
+    
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+
+    <uses-feature android:name="android.hardware.bluetooth_le" android:required="true"/>
+    <uses-feature android:glEsVersion="0x00020000" android:required="true"/>
+
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_GPS"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+    <uses-permission android:name="android.permission.BROADCAST_STICKY"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+    <uses-permission android:name="android.permission.READ_LOGS"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.RESTART_PACKAGES"/>
+    <uses-permission android:name="android.permission.USE_CREDENTIALS"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT"/>
+    <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.SET_DEBUG_APP"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+
+    <application android:allowBackup="true" android:icon="@drawable/icon" android:label="@string/app_name" android:name="com.pdy.mobile.appppp" android:theme="@style/DirTheme">
+        <meta-data android:name="UMENG_APPKEY" android:value="58807b2eb27b0a57e4000408">
+        </meta-data>
+        <meta-data android:name="UMENG_CHANNEL" android:value=""/>
+        <meta-data android:name="UMENG_MESSAGE_SECRET" android:value="8d2d1a92b25d7f9a4ee89f6876c37b07">
+        </meta-data>
+
+        <provider android:authorities="com.sat.android.fileprovider" android:exported="false" android:grantUriPermissions="true" android:name="android.support.v4.content.FileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/file_paths"/>
+        </provider>
+
+        <activity android:label="@string/app_name" android:name="com.pdy.mobile.GuideActivity" android:screenOrientation="portrait">
+             <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/app_name" android:name="com.pdy.mobile.App" android:screenOrientation="portrait">
+        </activity>
+        <activity android:label="@string/app_name" android:name="com.pdy.mobile.sss" android:screenOrientation="portrait">
+            
+        </activity>
+        <activity android:label="@string/app_name" android:name="com.pdy.video.VideoActivity">
+        </activity>
+        <activity android:configChanges="orientation|keyboardHidden|screenSize" android:label="@string/app_name" android:name="com.pdy.mobile.LoadingMain" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent.NoTitleBar">
+        </activity>
+        <activity android:configChanges="orientation|keyboardHidden|screenSize" android:label="@string/app_name" android:name="com.pdy.camera.CameraMain" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent.NoTitleBar">
+        </activity>
+        <activity android:configChanges="orientation|keyboardHidden|screenSize" android:label="@string/app_name" android:name="com.pdy.camera.CameraMain2" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent.NoTitleBar">
+        </activity>
+        <activity android:configChanges="orientation|keyboardHidden|screenSize" android:label="@string/app_name" android:name="com.pdy.mobile.UIWebview" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent.NoTitleBar">
+        </activity>
+        <activity android:configChanges="orientation|keyboardHidden|screenSize" android:label="@string/app_name" android:name="com.pdy.camera.TakeVideo" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent.NoTitleBar">
+        </activity>
+        <activity android:configChanges="orientation|keyboardHidden|screenSize" android:label="@string/app_name" android:name="com.pdy.camera.HoDragVideo" android:screenOrientation="portrait" android:theme="@style/AppTheme">
+        </activity>
+        <activity android:configChanges="orientation|keyboardHidden|screenSize" android:label="@string/app_name" android:name="com.pdy.camera.EditorVideo" android:screenOrientation="portrait" android:theme="@style/AppTheme">
+        </activity>
+        <activity android:configChanges="orientation|keyboardHidden|screenSize" android:label="@string/app_name" android:name="com.pdy.mobile.Setting" android:screenOrientation="portrait" android:theme="@style/AppTheme">
+        </activity>
+        <activity android:configChanges="orientation|keyboardHidden|screenSize" android:label="@string/app_name" android:name="com.pdy.mobile.AutoPlayVideoSettings" android:screenOrientation="portrait" android:theme="@style/AppTheme"/>
+        <activity android:configChanges="orientation|keyboardHidden|screenSize" android:label="@string/app_name" android:name="com.pdy.mobile.NotNetWifi" android:screenOrientation="portrait" android:theme="@style/AppTheme"/>
+        <activity android:configChanges="orientation|keyboardHidden|screenSize" android:label="@string/app_name" android:name="com.pdy.mobile.LoadingActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme"/>
+        <activity android:configChanges="orientation|keyboardHidden|screenSize" android:label="@string/app_name" android:name="com.pdy.mobile.FeedBack" android:screenOrientation="portrait" android:theme="@style/AppTheme"/>
+        <activity android:configChanges="orientation|keyboardHidden|screenSize" android:label="@string/app_name" android:name="com.pdy.mobile.SendPaoPaoTxt" android:screenOrientation="portrait" android:theme="@style/AppTheme">
+        </activity>
+        <activity android:configChanges="orientation|keyboardHidden|screenSize" android:label="@string/app_name" android:name="com.pdy.mobile.VideoPlayer" android:screenOrientation="portrait" android:theme="@style/AppTheme">
+        </activity>
+        <activity android:configChanges="orientation|keyboardHidden|screenSize" android:label="@string/app_name" android:name="com.pdy.mobile.SendPaoPaoAudio" android:screenOrientation="portrait" android:theme="@style/AppTheme">
+        </activity>
+        <activity android:configChanges="orientation|keyboardHidden|screenSize" android:label="@string/app_name" android:name="com.pdy.mobile.SendPaoPaoPic" android:screenOrientation="portrait" android:theme="@style/AppTheme">
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:exported="true" android:name="com.pdy.mobile.wxapi.WXEntryActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+
+        <!-- ###################注册SDK使用的Activity###################### -->
+        <!-- 分享编辑 -->
+        <activity android:excludeFromRecents="true" android:name="com.umeng.socialize.editorpage.ShareActivity" android:theme="@style/Theme.UMDefault"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.umeng.weixin.callback.WXCallbackActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="com.sina.weibo.sdk.action.ACTION_SDK_REQ_ACTIVITY"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+
+        <!-- ############ QQ空间和QQ SSO授权的Activity注册 ############ -->
+        <activity android:launchMode="singleTask" android:name="com.umeng.qq.tencent.AuthActivity" android:noHistory="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+
+                <data android:scheme="tencent1105884323"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.umeng.qq.tencent.AssistActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+
+        <service android:exported="true" android:name="com.taobao.accs.ChannelService" android:process=":channel">
+            <intent-filter>
+                <action android:name="com.taobao.accs.intent.action.SERVICE"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.taobao.accs.intent.action.ELECTION"/>
+            </intent-filter>
+        </service>
+
+        <service android:exported="true" android:name="com.taobao.accs.data.MsgDistributeService">
+            <intent-filter>
+                <action android:name="com.taobao.accs.intent.action.RECEIVE"/>
+            </intent-filter>
+        </service>
+
+        <service android:name="com.taobao.accs.ChannelService$KernelService" android:process=":channel">
+        </service>
+
+        <service android:exported="true" android:name="org.android.agoo.accs.AgooService">
+            <intent-filter>
+                <action android:name="com.taobao.accs.intent.action.RECEIVE"/>
+            </intent-filter>
+        </service>
+        <service android:exported="true" android:name="com.umeng.message.UmengIntentService" android:process=":channel">
+            <intent-filter>
+                <action android:name="org.agoo.android.intent.action.RECEIVE"/>
+            </intent-filter>
+        </service>
+        <service android:exported="false" android:name="com.umeng.message.UmengMessageCallbackHandlerService">
+            <intent-filter>
+                <action android:name="com.umeng.messge.registercallback.action"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.umeng.message.enablecallback.action"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.umeng.message.disablecallback.action"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.umeng.message.message.handler.action"/>
+            </intent-filter>
+        </service>
+
+        <service android:exported="false" android:name="com.umeng.message.UmengDownloadResourceService"/>
+        <service android:exported="true" android:name="com.umeng.message.UmengMessageIntentReceiverService" android:process=":channel">
+            <intent-filter>
+                <action android:name="org.android.agoo.client.MessageReceiverService"/>
+            </intent-filter>
+        </service>
+
+        <receiver android:name="com.taobao.accs.EventReceiver" android:process=":channel">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_REMOVED"/>
+                <data android:scheme="package"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+            </intent-filter>
+        </receiver>
+
+        <receiver android:exported="false" android:name="com.taobao.accs.ServiceReceiver" android:process=":channel">
+            <intent-filter>
+                <action android:name="com.taobao.accs.intent.action.COMMAND"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.taobao.accs.intent.action.START_FROM_AGOO"/>
+            </intent-filter>
+        </receiver>
+
+        <receiver android:exported="true" android:name="com.taobao.agoo.AgooCommondReceiver">
+            <intent-filter>
+                <action android:name="com.pdy.mobile.intent.action.COMMAND"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_REMOVED"/>
+                <data android:scheme="package"/>
+            </intent-filter>
+        </receiver>
+
+        <receiver android:exported="false" android:name="com.umeng.message.NotificationProxyBroadcastReceiver"/>
+        <provider android:authorities="com.pdy.mobile.umeng.message" android:exported="false" android:name="com.umeng.message.provider.MessageProvider">
+            <grant-uri-permission android:pathPattern=".*"/>
+        </provider>
+    </application>
+    <uses-permission android:name="android.permission.BROADCAST_PACKAGE_ADDED"/>
+    <uses-permission android:name="android.permission.BROADCAST_PACKAGE_CHANGED"/>
+    <uses-permission android:name="android.permission.BROADCAST_PACKAGE_INSTALL"/>
+    <uses-permission android:name="android.permission.BROADCAST_PACKAGE_REPLACED"/>
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
+
+</manifest>

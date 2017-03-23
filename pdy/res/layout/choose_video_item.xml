@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    
+     >
+
+    <ImageView
+        android:id="@+id/item_video_image"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:src="@drawable/loading3" />
+
+    <TextView
+        android:id="@+id/item_video_text"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+                     
+        android:drawableLeft="@drawable/video_item"
+        android:background="@color/black_translucent"
+        android:gravity="fill_vertical|right"
+        android:textColor="@color/white" />
+
+    <CheckBox
+        android:id="@+id/item_video_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:button="@drawable/auto_play_video_setting2" />
+
+</RelativeLayout>

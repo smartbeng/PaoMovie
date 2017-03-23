@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="200dp"
+    android:background="@android:color/transparent" >
+
+    <RelativeLayout
+        android:layout_width="150dp"
+        android:layout_height="200dp"
+        android:background="@android:color/transparent" >
+
+        <ImageView
+            android:id="@+id/connect_left"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/connect" />
+        
+            <ImageView
+                android:id="@+id/editor_image"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:background="@color/black" />
+
+            <TextView
+                android:id="@+id/editor_text"
+                android:layout_width="100dp"
+                android:layout_height="26dip"
+                android:layout_alignBottom="@+id/editor_image"
+                android:layout_alignLeft="@+id/editor_image"
+                android:background="@color/black_translucent"
+                android:gravity="center|center_horizontal"
+                android:singleLine="true"
+                android:text="00:00:00"
+                android:textColor="@color/white"
+                android:textSize="14dip" />
+        </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/editor_relative"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="50dp"
+        android:background="@android:color/transparent"
+        android:orientation="vertical"
+        android:visibility="gone" >
+
+        <TextView
+            android:id="@+id/editor_video_text"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:background="@color/black_translucent"
+            android:gravity="center"
+            android:text="@string/editor_video_text"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:id="@+id/editor_delete_text"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:background="@color/black_translucent"
+            android:gravity="center"
+            android:text="@string/editor_delete_text"
+            android:textColor="@color/white" />
+    </LinearLayout>
+
+</RelativeLayout>

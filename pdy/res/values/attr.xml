@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="BottomClick">
+        <attr name="clickDrawable" format="reference"></attr>
+        <attr name="drawable" format="reference"></attr>
+        <attr name="textColor" format="color"></attr>
+        <attr name="textClickColor" format="color"></attr>
+    </declare-styleable>
+</resources>

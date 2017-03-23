@@ -1,0 +1,11 @@
+
+    <resources>
+      <array name="ItemArray">
+         <item>打开相机录像</item>
+         <item>打开AR相机录像</item>
+         <item>从本地选取视频</item>
+     </array>
+    <string-array name="pao_pao_quan">
+        <item>请选择泡泡圈</item>
+    </string-array>
+    </resources>

@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@color/white"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="11.5"
+            android:background="@color/white" >
+
+            <ImageView
+                android:id="@+id/back"
+                android:layout_width="20dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:src="@drawable/arrow_l" />
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="fill_parent"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:clickable="false"
+                android:gravity="center"
+                android:text="发布文字泡沫"
+                android:textSize="18dp" />
+
+            <TextView
+                android:id="@+id/send"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="20dp"
+                android:text="发送"
+                android:textColor="@color/bottom_text_Color"
+                android:textSize="15dp" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_weight="12"
+            android:background="@color/lightgray1"
+            android:clickable="false"
+            android:gravity="center"
+            android:text="超脑48小时"
+            android:textSize="16dp" />
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_weight="7"
+            android:background="@color/white" >
+
+            <EditText
+                android:id="@+id/content"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:ems="10"
+                android:gravity="left|top"
+                android:hint="内容"
+                android:maxLength="180" >
+                <requestFocus />
+            </EditText>
+
+            <TextView
+                android:id="@+id/curr_text_num"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginBottom="14dp"
+                android:layout_marginRight="16dp"
+                android:text="0/180" />
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="7"
+            android:background="@color/white"
+            android:orientation="vertical" >
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="2" >
+
+                <TextView
+                    android:id="@+id/pdy_index"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="20dp"
+                    android:text="泡电影指数"
+                    android:textSize="15dp" />
+
+                <TextView
+                    android:id="@+id/pdy_bao"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toRightOf="@+id/pdy_index"
+                    android:drawableLeft="@drawable/bao"
+                    android:gravity="center"
+                    android:text="  +1"
+                    android:textColor="#ce1c00" />
+
+                <TextView
+                    android:id="@+id/pdy_niao"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toRightOf="@+id/pdy_bao"
+                    android:drawableLeft="@drawable/niao"
+                    android:gravity="center"
+                    android:text="  +1"
+                    android:textColor="#ffbe2f" />
+
+                <ImageView
+                    android:id="@+id/prompt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="20dp"
+                    android:src="@drawable/gth" />
+            </RelativeLayout>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@color/gray" />
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="2" >
+
+                <TextView
+                    android:id="@+id/pdy_circle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="20dp"
+                    android:text="泡泡圈"
+                    android:textSize="15dp" />
+
+                <Spinner
+                    android:id="@+id/pao_pao_quan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_toRightOf="@+id/pdy_circle"
+                    android:entries="@array/pao_pao_quan" />
+            </RelativeLayout>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@color/gray" />
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:background="@color/lightgray1" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/prompt_rela"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="#e0c5c5c5"
+        android:visibility="gone" >
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@color/white" >
+
+            <ImageView
+                android:id="@+id/close"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:src="@drawable/close_blue" />
+
+            <TextView
+                android:id="@+id/zhishu"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="30dp"
+                android:gravity="center"
+                android:text="泡电影指数规则"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <View
+                android:id="@+id/line"
+                android:layout_width="fill_parent"
+                android:layout_height="2dp"
+                android:layout_alignLeft="@id/zhishu"
+                android:layout_alignRight="@id/zhishu"
+                android:layout_below="@id/zhishu"
+                android:layout_marginTop="10dp"
+                android:background="#c5c5c5" />
+
+            <TextView
+                android:id="@+id/zhishu1"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@id/line"
+                android:layout_alignRight="@id/line"
+                android:layout_alignTop="@id/line"
+                android:layout_below="@id/line"
+                android:layout_marginTop="10dp"
+                android:text="泡电影指数：观众给予电影评价分数，分为爆点和尿点"
+                android:textSize="15dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/zhishu2"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@id/zhishu1"
+                android:layout_alignRight="@id/zhishu1"
+                android:layout_below="@+id/zhishu1"
+                android:text="发布泡沫每个指数最大值为：10，两种指数都能选择\n评论泡沫每个指数最大值为：1，只能选一种进行评价"
+                android:textSize="15dp" />
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="30dp"
+                android:layout_below="@+id/zhishu2" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+</RelativeLayout>

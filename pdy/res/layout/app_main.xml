@@ -1,0 +1,439 @@
+<com.pdy.common.MyRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:attr="http://schemas.android.com/apk/res/com.pdy.mobile"
+    android:id="@+id/rootlayout"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:animateLayoutChanges="true"
+    android:clipChildren="false"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:clipChildren="false"
+        android:orientation="vertical" >
+
+        <FrameLayout
+            android:id="@+id/video_view"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:visibility="gone" >
+
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:clipChildren="false"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:id="@+id/top_lin"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="7.5"
+                android:background="@color/white"
+                android:orientation="vertical"
+                android:visibility="gone" >
+
+                <ImageView
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1.5"
+                    android:background="@color/white" />
+
+                <LinearLayout
+                    android:id="@+id/pao_bang_lin"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"
+                    android:background="@color/white"
+                    android:orientation="horizontal"
+                    android:visibility="gone" >
+
+                    <View
+                        android:layout_width="60dp"
+                        android:layout_height="fill_parent" />
+
+                    <com.pdy.mobile.ClickChangeImage
+                        android:id="@+id/bao_dian_bang"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="1"
+                        android:background="@color/white"
+                        android:orientation="vertical"
+                        attr:clickDrawable="@color/bottom_text_Color"
+                        attr:drawable="@color/white"
+                        attr:textClickColor="@color/black"
+                        attr:textColor="@color/gray" >
+
+                        <TextView
+                            android:layout_width="fill_parent"
+                            android:layout_height="fill_parent"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="爆点榜"
+                            android:textColor="@color/black"
+                            android:textSize="13dp" />
+
+                        <ImageView
+                            android:layout_width="fill_parent"
+                            android:layout_height="5dp"
+                            android:layout_weight="1"
+                            android:background="@color/bottom_text_Color" />
+                    </com.pdy.mobile.ClickChangeImage>
+
+                    <View
+                        android:layout_width="60dp"
+                        android:layout_height="fill_parent" />
+
+                    <com.pdy.mobile.ClickChangeImage
+                        android:id="@+id/niao_dian_bang"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="1"
+                        android:background="@color/white"
+                        android:orientation="vertical"
+                        attr:clickDrawable="@color/bottom_text_Color"
+                        attr:drawable="@color/white"
+                        attr:textClickColor="@color/black"
+                        attr:textColor="@color/gray" >
+
+                        <TextView
+                            android:layout_width="fill_parent"
+                            android:layout_height="fill_parent"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="尿点榜"
+                            android:textColor="@color/gray"
+                            android:textSize="13dp" />
+
+                        <ImageView
+                            android:layout_width="fill_parent"
+                            android:layout_height="5dp"
+                            android:layout_weight="1"
+                            android:background="@color/white" />
+                    </com.pdy.mobile.ClickChangeImage>
+
+                    <View
+                        android:layout_width="40dp"
+                        android:layout_height="fill_parent" />
+
+                    <ImageView
+                        android:id="@+id/niao_sou_suo"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="1.15"
+                        android:background="@drawable/sou_suo" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/pao_ba_lin"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"
+                    android:background="@color/white"
+                    android:orientation="horizontal"
+                    android:visibility="gone" >
+
+                    <View
+                        android:layout_width="20dp"
+                        android:layout_height="fill_parent" />
+
+                    <com.pdy.mobile.ClickChangeImage
+                        android:id="@+id/guan_zhu_dian_ying"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="1"
+                        android:background="@color/white"
+                        android:orientation="vertical"
+                        attr:clickDrawable="@color/bottom_text_Color"
+                        attr:drawable="@color/white"
+                        attr:textClickColor="@color/black"
+                        attr:textColor="@color/gray" >
+
+                        <TextView
+                            android:layout_width="fill_parent"
+                            android:layout_height="fill_parent"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="关注电影"
+                            android:textColor="@color/black"
+                            android:textSize="13dp" />
+
+                        <ImageView
+                            android:layout_width="fill_parent"
+                            android:layout_height="5dp"
+                            android:layout_weight="1"
+                            android:background="@color/bottom_text_Color" />
+                    </com.pdy.mobile.ClickChangeImage>
+
+                    <View
+                        android:layout_width="20dp"
+                        android:layout_height="fill_parent" />
+
+                    <com.pdy.mobile.ClickChangeImage
+                        android:id="@+id/guan_zhu_ren"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="1"
+                        android:background="@color/white"
+                        android:orientation="vertical"
+                        attr:clickDrawable="@color/bottom_text_Color"
+                        attr:drawable="@color/white"
+                        attr:textClickColor="@color/black"
+                        attr:textColor="@color/gray" >
+
+                        <TextView
+                            android:layout_width="fill_parent"
+                            android:layout_height="fill_parent"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="关注人"
+                            android:textColor="@color/gray"
+                            android:textSize="13dp" />
+
+                        <ImageView
+                            android:layout_width="fill_parent"
+                            android:layout_height="5dp"
+                            android:layout_weight="1"
+                            android:background="@color/white" />
+                    </com.pdy.mobile.ClickChangeImage>
+
+                    <View
+                        android:layout_width="20dp"
+                        android:layout_height="fill_parent" />
+
+                    <com.pdy.mobile.ClickChangeImage
+                        android:id="@+id/chui_pao_pao"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="1"
+                        android:background="@color/white"
+                        android:orientation="vertical"
+                        attr:clickDrawable="@color/bottom_text_Color"
+                        attr:drawable="@color/white"
+                        attr:textClickColor="@color/black"
+                        attr:textColor="@color/gray" >
+
+                        <TextView
+                            android:layout_width="fill_parent"
+                            android:layout_height="fill_parent"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="泡泡圈"
+                            android:textColor="@color/gray"
+                            android:textSize="13dp" />
+
+                        <ImageView
+                            android:layout_width="fill_parent"
+                            android:layout_height="5dp"
+                            android:layout_weight="1"
+                            android:background="@color/white" />
+                    </com.pdy.mobile.ClickChangeImage>
+
+                    <View
+                        android:layout_width="20dp"
+                        android:layout_height="fill_parent" />
+
+                    <ImageView
+                        android:id="@+id/sou_suo"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="1.15"
+                        android:background="@drawable/sou_suo" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <RelativeLayout
+                android:id="@+id/webviews"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:clipChildren="false" >
+            </RelativeLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/bottomImageLin"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="10.9"
+            android:background="@color/black"
+            android:clipChildren="false"
+            android:orientation="horizontal" >
+
+            <!-- 泡泡 -->
+
+            <com.pdy.mobile.ClickChangeImage
+                android:id="@+id/pao_pao"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:background="@color/black"
+                android:orientation="vertical"
+                attr:clickDrawable="@drawable/paopao_select"
+                attr:drawable="@drawable/paopao"
+                attr:textClickColor="@color/bottom_text_Color"
+                attr:textColor="@color/white" >
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="7dp"
+                    android:background="@drawable/paopao" />
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:gravity="center"
+                    android:text="@string/pao_pao_text"
+                    android:textColor="@color/bottom_text_Color"
+                    android:textSize="13dp" />
+            </com.pdy.mobile.ClickChangeImage>
+
+            <!-- 泡榜 -->
+
+            <com.pdy.mobile.ClickChangeImage
+                android:id="@+id/pao_bang"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:background="@color/black"
+                android:orientation="vertical"
+                attr:clickDrawable="@drawable/paobang_select"
+                attr:drawable="@drawable/paobang"
+                attr:textClickColor="@color/bottom_text_Color"
+                attr:textColor="@color/white" >
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="7dp"
+                    android:background="@drawable/paobang" />
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:gravity="center"
+                    android:text="@string/pao_bang_text"
+                    android:textColor="@color/white"
+                    android:textSize="13dp" />
+            </com.pdy.mobile.ClickChangeImage>
+
+            <!-- 泡 -->
+
+            <ImageView
+                android:id="@+id/pao"
+                android:layout_width="fill_parent"
+                android:layout_height="65dp"
+                android:layout_gravity="bottom"
+                android:layout_marginBottom="20dp"
+                android:layout_weight="1"
+                android:src="@drawable/pao" />
+
+            <!-- 泡吧 -->
+
+            <com.pdy.mobile.ClickChangeImage
+                android:id="@+id/pao_ba"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:background="@color/black"
+                android:orientation="vertical"
+                attr:clickDrawable="@drawable/paoba_select"
+                attr:drawable="@drawable/paoba"
+                attr:textClickColor="@color/bottom_text_Color"
+                attr:textColor="@color/white" >
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="7dp"
+                    android:background="@drawable/paoba" />
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:gravity="center"
+                    android:text="@string/pao_ba_text"
+                    android:textColor="@color/white"
+                    android:textSize="13dp" />
+            </com.pdy.mobile.ClickChangeImage>
+
+            <!-- 我的 -->
+
+            <com.pdy.mobile.ClickChangeImage
+                android:id="@+id/wo_de"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:background="@color/black"
+                android:orientation="vertical"
+                attr:clickDrawable="@drawable/me_select"
+                attr:drawable="@drawable/me"
+                attr:textClickColor="@color/bottom_text_Color"
+                attr:textColor="@color/white" >
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="7dp"
+                    android:background="@drawable/me" />
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:gravity="center"
+                    android:text="@string/wo_de_text"
+                    android:textColor="@color/white"
+                    android:textSize="13dp" />
+            </com.pdy.mobile.ClickChangeImage>
+        </LinearLayout>
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="25dp"
+        android:layout_alignParentTop="true"
+        android:background="@color/black_translucent" />
+
+    <RelativeLayout
+        android:id="@+id/relative_loading"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
+
+        <ImageView
+            android:id="@+id/iv_loading"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:scaleType="fitXY"
+            android:src="@drawable/loading"
+            android:visibility="gone" />
+
+        <pl.droidsonroids.gif.GifImageView
+            android:id="@+id/gif"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:scaleType="centerInside"
+            android:src="@drawable/loading3"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="148dp"
+            android:text="正在加载，请稍候..."
+            android:textSize="18dip"
+            android:visibility="gone" />
+    </RelativeLayout>
+
+</com.pdy.common.MyRelativeLayout>

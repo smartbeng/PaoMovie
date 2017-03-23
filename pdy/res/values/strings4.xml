@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/**
+ * Copyright (c) 2008, Google Inc.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License"); 
+ * you may not use this file except in compliance with the License. 
+ * You may obtain a copy of the License at 
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0 
+ *
+ * Unless required by applicable law or agreed to in writing, software 
+ * distributed under the License is distributed on an "AS IS" BASIS, 
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+ * See the License for the specific language governing permissions and 
+ * limitations under the License.
+ */
+-->
+<resources>
+  <string name="泡电影_app_name">泡电影</string>
+  <!--
+     Main / media select activity
+     -->
+  <string name="main_activity_label">泡电影</string>
+  <string name="button_start_record_activity">新录制</string>
+  <string name="sdcard_readonly">抱歉，SD卡映射为只读，而泡电影需要其可写入。</string>
+  <string name="no_sdcard">抱歉，泡电影只在插入SD卡时运行。</string>
+  <string name="sdcard_shared">抱歉，泡电影无法在手机映射为USB设备时运行。</string>
+  <!--
+     Edit activity
+     -->
+  <!-- Labels next to the start and end time edit boxes -->
+  <string name="start_label">开始：</string>
+  <string name="end_label">结束:</string>
+  <string name="edit_intent">编辑</string>
+  <string name="time_seconds">秒数</string>
+  <string name="do_nothing_with_ringtone_button">关闭</string>
+  <!-- Progress dialog text for loading or saving... -->
+  <string name="progress_dialog_loading">载入中...</string>
+  <string name="progress_dialog_saving">保持中...</string>
+
+
+  <string name="artist_name">泡电影</string>
+  <!--
+     Delete confirmation dialog
+     -->
+  <string name="confirm_delete_泡电影">您确定要这样做吗？</string>
+  <string name="confirm_delete_non_泡电影">是否确定？这个文件不是通过泡电影创建的！</string>
+  <string name="delete_ok_button">删除</string>
+  <string name="delete_cancel_button">取消</string>
+  <string name="delete_failed">无法删除文件</string>
+  <!--
+     Success and error messages
+     -->
+  <string name="alert_title_success">成功</string>
+  <string name="alert_title_failure">错误</string>
+  <string name="alert_ok_button">确定</string>
+  <string name="alert_yes_button">是的，请吧！</string>
+  <string name="alert_no_button">不，谢谢。</string>
+  <string name="save_success_message">已保存！</string>
+  <string name="default_ringtone_success_message">默认铃声已更改</string>
+  <string name="play_error">无法播放此媒体文件</string>
+  <string name="no_unique_filename">无法找到专属文件名</string>
+  <string name="delete_tmp_error">删除临时文件时出错</string>
+  <string name="record_error">启动录音机时出错</string>
+  <string name="too_small_error">无法保存过小的文件，请尝试使其更长。</string>
+  <string name="write_error">写文件时出错</string>
+  <string name="read_error">读文件时出错</string>
+  <string name="no_space_error">您的SD卡已满，没有足够空间保存此文件。</string>
+  <string name="bad_extension_error">抱歉，泡电影尚不能编辑有类型的文件。</string>
+  <string name="no_extension_error">抱歉，泡电影不能编辑无扩展名（如.mp3、.wav）的文件</string>
+  
+</resources>

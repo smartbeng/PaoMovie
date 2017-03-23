@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources>
+    <string name="app_name">泡电影</string>
+    <string name="pao_pao_text">泡泡</string>
+    <string name="pao_bang_text">泡榜</string>
+    <string name="pao_ba_text">泡吧</string>
+    <string name="wo_de_text">我的</string>
+    <string name="import_movie_text">导入视频</string>
+    <string name="import_movie_next">下一步   </string>
+    <string name="editor_movie_text">编辑视频</string>
+    <string name="editor_delete_text">删除</string>
+    <string name="movie_text">视频</string>
+    <string name="imageview_content_description"/>
+    <string name="video_time_start">0:00</string>
+    <string name="video_time_end">0:00</string>
+    <string name="editor_video_text">编辑视频</string>
+    <string name="editor_video_sub">点击编辑，双击放大缩小</string>
+    <string name="music_text">音频</string>
+      <string name="title_section1">Section 1</string>
+    <string name="title_section2">Section 2</string>
+    <string name="title_section3">Section 3</string>
+</resources>

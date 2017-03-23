@@ -1,0 +1,190 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/black"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="5.8"
+        android:background="@color/black" >
+
+        <ImageView
+            android:id="@+id/back"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/back" />
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_centerVertical="true"
+            android:text=""
+            android:textColor="@color/white" />
+
+        <ImageView
+            android:id="@+id/exprot"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:src="@drawable/exprot" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/record_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="200dp"
+        android:background="@color/top_black" >
+
+        <com.pdy.camera.MyVideoView
+            android:id="@+id/record_preview"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_centerInParent="true" />
+        <ImageView 
+            android:id="@+id/sub_image"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_centerInParent="true"/>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="5.5"
+        android:background="@color/top_black"
+        android:orientation="horizontal" >
+
+        <FrameLayout
+            android:id="@+id/record_play"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="2" >
+
+            <ImageView
+                android:id="@+id/video_play_image"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_gravity="center"
+                android:src="@drawable/video_play" />
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/video_time_start"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:gravity="center"
+            android:text="@string/video_time_start"
+            android:textColor="@color/white" />
+
+        <SeekBar
+            android:id="@+id/video_progress"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/video_time_end"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:gravity="center"
+            android:text="@string/video_time_end"
+            android:textColor="@color/white" />
+    </LinearLayout>
+
+    <HorizontalScrollView
+        android:id="@+id/videos_horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="4"
+        android:background="@color/bottom_black"
+        android:visibility="visible" >
+
+        <LinearLayout
+            android:id="@+id/videos_scroll"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal" >
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <LinearLayout
+        android:id="@+id/music_linear"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="4"
+        android:background="@color/bottom_black"
+        android:orientation="vertical"
+        android:visibility="gone" >
+
+        <HorizontalScrollView
+            android:id="@+id/music_horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="70dp"
+            android:layout_marginTop="20dp" >
+
+            <LinearLayout
+                android:id="@+id/music_scroll"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:background="@color/black" >
+            </LinearLayout>
+        </HorizontalScrollView>
+
+        <ImageView
+            android:id="@+id/music_Image"
+            android:layout_width="fill_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="40dp"
+            android:src="@drawable/add" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="6"
+        android:background="@color/center_black"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/video"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/movie_text"
+            android:textColor="@color/white" />
+		<View 
+		    android:layout_width="1dp"
+		    android:layout_height="fill_parent"
+		    android:background="@color/gray"/>
+        <TextView
+            android:id="@+id/music"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/music_text"
+            android:textColor="@color/white" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/alin"
+        android:layout_width="1dp"
+        android:layout_height="1dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:orientation="vertical" >
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:orientation="vertical"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent">
+
+  <FrameLayout
+      android:layout_centerVertical="true"
+      android:layout_centerInParent="true"
+    android:id="@+id/cameraPreview"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_weight="1">
+    
+ 
+    
+  </FrameLayout>
+
+     
+      <ImageView
+           android:layout_centerVertical="true"
+      android:layout_centerInParent="true"
+        android:id="@+id/iv_camera_diy_corner"
+      android:layout_gravity="center"
+		android:layout_width="wrap_content" 
+		android:layout_height="wrap_content"
+		android:background="@drawable/bar_code_four_corner" 
+		/>
+  <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:text="请扫描二维码"
+            android:textColor="#d78816"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+  <TextView
+      android:visibility="gone"
+    android:id="@+id/scanText"
+    android:text="Scanning..."
+    android:layout_height="wrap_content" 
+    android:layout_width="match_parent">
+  </TextView>
+  <Button
+      android:visibility="gone"
+    android:id="@+id/ScanButton"
+    android:text="Scan"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+  />
+</RelativeLayout>

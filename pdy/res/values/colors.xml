@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <drawable name="waveform_selected">#8dffff</drawable>
+  <drawable name="waveform_unselected">#106072</drawable>
+  <drawable name="waveform_unselected_bkgnd_overlay">#33000000</drawable>
+  <drawable name="selection_border">#ffffff</drawable>
+  <drawable name="playback_indicator">#ffff66</drawable>
+  <drawable name="grid_line">#ee01a9a9</drawable>
+  <drawable name="timecode">#ddffffdd</drawable>
+  <drawable name="timecode_shadow">#aa000000</drawable>
+
+  <drawable name="type_bkgnd_alarm">#88880000</drawable>
+  <drawable name="type_bkgnd_ringtone">#88008888</drawable>
+  <drawable name="type_bkgnd_notification">#88666600</drawable>
+  <drawable name="type_bkgnd_music">#88000000</drawable>
+  <drawable name="type_bkgnd_unsupported">#88cccccc</drawable>
+    <color name="darkgray">#404040ff</color>
+    <color name="black">#000</color>
+    <color name="red">#FF0000</color>
+    <color name="green">#0ff0ff</color>
+    <color name="lightgray">#c0c0c0ff</color>
+    <color name="white">#ffffffff</color>
+    <color name="blue">#ff0f81d9</color>
+    <color name="gray">#ff666666</color>
+    <color name="text_gray2">#ffC3C3C3</color>
+    <color name="magenta">#ff6699ff</color>
+    <color name="cyan">#66ffffff</color>
+    <color name="transparent">#00000000</color>
+    <color name="transparent_black">#ff000000</color>
+    <color name="background_dark">#f0f0f0</color>
+    <color name="camera_bg">#2c2c2c</color>
+    <color name="camera_progress">#2980B9</color>
+    <color name="camera_progress_split">#005084</color>
+    <color name="camera_progress_three">#24ff00</color>
+    <color name="camera_progress_overflow">#1b5d89</color>
+    <color name="camera_theme_selected_bgcolor">#2980B9</color>
+    <color name="camera_bottom_press_bg">#1b1c1f</color>
+    <color name="title_background_color">#fcb840</color>
+    <color name="camera_progress_delete">#f68b2b</color>
+    <color name="translucent_background_80">#CC000000</color>
+    <color name="translucent_background_50">#7f000000</color>
+    <color name="transparent_black_40">#66000000</color>
+    <color name="transparent_black_85">#DA000000</color>
+    <color name="transparent_black_30">#4D000000</color>
+    <color name="publish_at_line">#FF434345</color>
+    <color name="main_bg_color">#e7e7e7</color>
+    <!-- 标题文字 -->
+	<color name="color_23232b">#23232b</color>
+	
+	<color name="video_double_back">#1c1b20</color>
+	<!-- 辅助文字 -->
+	<color name="color_919191">#919191</color>
+	<color name="title_bac_color">#F5F5F5</color>
+	<color name="yellow">#ffc800</color>
+	<color name="title_black_color">#23232b</color>
+	<color name="title_txt_color">#23232b</color>
+	<color name="import_video_thumb_mask">#FF151515</color>
+	<color name="translucent_background_75">#BF000000</color>
+	<color name="button_black_background">#424253</color>
+	<color name="import_video_thumb_bg">#FF515154</color>
+</resources>
