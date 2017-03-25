@@ -16,14 +16,17 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.graphics.Color;
+import android.hardware.SensorManager;
 import android.media.AudioManager;
 import android.net.Uri;
 import android.os.Environment;
 import android.os.Vibrator;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.GestureDetector;
 import android.view.Gravity;
 import android.view.MotionEvent;
+import android.view.OrientationEventListener;
 import android.view.SurfaceView;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -42,6 +45,8 @@ import android.widget.Toast;
 import in.srain.cube.views.ptr.PtrClassicFrameLayout;
 
 public class MyWebChromeClient extends WebChromeClient {
+
+	
 
 	public static final int FILECHOOSER_RESULTCODE = 1212;
 	private String mCameraFilePath;
@@ -84,6 +89,18 @@ public class MyWebChromeClient extends WebChromeClient {
 	// 进入全屏的时候
 	@Override
 	public void onShowCustomView(View view, CustomViewCallback callback) {
+		
+		
+		AlbumOrientationEventListener mAlbumOrientationEventListener = new AlbumOrientationEventListener(act, SensorManager.SENSOR_DELAY_NORMAL);  
+		    if (mAlbumOrientationEventListener.canDetectOrientation()) {  
+		        mAlbumOrientationEventListener.enable();  
+		    } else {  
+		        Log.d("chengcj1", "Can't Detect Orientation");  
+		    }  
+		
+		
+		
+		
 		webviews = (RelativeLayout) act.findViewById(R.id.webviews);
 		int child = webviews.getChildCount();
 		RelativeLayout a = (RelativeLayout) webviews.getChildAt(child - 1);
@@ -154,23 +171,22 @@ public class MyWebChromeClient extends WebChromeClient {
 		video.addView(showhide);
 		video.addView(tvLight);
 		/**************** 这里开始 **********************/
-		/**
-		 * 获取到view界面焦点
-		 */
+		
 		if (view instanceof FrameLayout) {
 			// A video wants to be shown
 			FrameLayout frameLayout = (FrameLayout) view;
+			
+			
+			
+			/**
+			 * 获取到view界面焦点
+			 */
 			View focusedChild = frameLayout.getFocusedChild();
 			
 			/**
 			 * 界面点击滑动监听
 			 */
-			view.setVerticalFadingEdgeEnabled(false);
-			view.setHorizontalFadingEdgeEnabled(false);
-			view.setVerticalScrollBarEnabled(false);
-			view.setHorizontalScrollBarEnabled(false);
-			view.setOverScrollMode(View.OVER_SCROLL_NEVER );
-			focusedChild.setOnTouchListener(new OnTouchListener() {
+				focusedChild.setOnTouchListener(new OnTouchListener() {
 			
 				int lastX; // 记录首次按下的XY值
 				int lastY;
@@ -277,6 +293,38 @@ public class MyWebChromeClient extends WebChromeClient {
 		setFullScreen();
 
 	}
+	
+	/**
+	 * 用户手机横竖屏监听类
+	 * @author MaiBenBen
+	 *
+	 */
+     class AlbumOrientationEventListener extends OrientationEventListener {  
+   
+	    public AlbumOrientationEventListener(Context context) {  
+	        super(context);  
+	    }  
+	          
+	    public AlbumOrientationEventListener(Context context, int rate) {  
+	        super(context, rate);  
+	    }  
+	  
+	    @Override  
+	    public void onOrientationChanged(int orientation) {  
+	    	Log.e("屏幕旋转度数","" +orientation);
+	        if (orientation == OrientationEventListener.ORIENTATION_UNKNOWN) {  
+	            return;  
+	        }  
+	  
+	        //保证只返回四个方向  
+	        int newOrientation = ((orientation + 45) / 90 * 90) % 360;
+	        if (newOrientation == 180) {  
+	        	FrameLayout frame = new FrameLayout(act.getApplicationContext());
+	        	
+	            //返回的mOrientation就是手机方向，为0°、90°、180°和270°中的一个  
+	        }  
+	    }  
+	}  
 
 	/**
 	 * 设置亮度
