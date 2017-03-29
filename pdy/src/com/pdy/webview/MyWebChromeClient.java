@@ -175,9 +175,6 @@ public class MyWebChromeClient extends WebChromeClient {
 		if (view instanceof FrameLayout) {
 			// A video wants to be shown
 			FrameLayout frameLayout = (FrameLayout) view;
-			
-			
-			
 			/**
 			 * 获取到view界面焦点
 			 */
@@ -193,7 +190,7 @@ public class MyWebChromeClient extends WebChromeClient {
 
 				@Override
 				public boolean onTouch(View v, MotionEvent event) {
-
+					v.setClickable(true);
 					// 检测到触摸事件后第一时间得到触摸点坐标 并赋值给x,y
 					switch (event.getAction()) {
 					// 触摸事件中绕不开的第一步，必然执行，将按下时的触摸点坐标赋值给 lastX 和 last Y
@@ -225,11 +222,12 @@ public class MyWebChromeClient extends WebChromeClient {
 							hide = 0;
 							textView.setVisibility(View.VISIBLE);
 							if (diffY > 0) { // 表示音量在增加
-								textView.setText("音量" + diffY / 10);
-							} else if (diffY <= 0) { // 表示音量在递减
-
-								textView.setText("静音X");
-								mVoice = 0;
+								mVoice++;
+								textView.setText("音量" + ((diffY / 10) - (diffY / 10 * 0.5)));
+							} else if (diffY < 0) { // 表示音量在递减
+								textView.setText("音量" + ((diffY / 10) - (diffY / 10 * 0.5)));
+								//textView.setText("静音X");
+								//mVoice = 0;
 							}
 
 							mAudioManager.setStreamVolume(AudioManager.STREAM_MUSIC, mVoice, 0);
@@ -262,7 +260,6 @@ public class MyWebChromeClient extends WebChromeClient {
 						textView.setVisibility(View.GONE);
 						tvLight.setVisibility(View.GONE);
 						break;
-
 					}
 					return false;
 				}
@@ -307,32 +304,40 @@ public class MyWebChromeClient extends WebChromeClient {
 	          
 	    public AlbumOrientationEventListener(Context context, int rate) {  
 	        super(context, rate);  
-	    }  
-	  
+	    }  	  
 	    @Override  
 	    public void onOrientationChanged(int orientation) {  
 	    	Log.e("屏幕旋转度数","" +orientation);
-	        if (orientation == OrientationEventListener.ORIENTATION_UNKNOWN) {  
+	    	int screenOrientation = act.getResources().getConfiguration().orientation;
+	        /*if (orientation == OrientationEventListener.ORIENTATION_UNKNOWN) {  
 	            return;  
-	        }  
+	        }  */
 	  
 	        //保证只返回四个方向  
-	        int newOrientation = ((orientation + 45) / 90 * 90) % 360;
+	       /* int newOrientation = ((orientation + 45) / 90 * 90) % 360;
 	        if (newOrientation == 180) {  
 	        	FrameLayout frame = new FrameLayout(act.getApplicationContext());
-	        	
 	            //返回的mOrientation就是手机方向，为0°、90°、180°和270°中的一个  
-	        }  
+	        }*/  
+	        FrameLayout frame = new FrameLayout(act.getApplicationContext());
+	        if (((orientation >= 0) && (orientation < 45)) || (orientation > 315)) {//设置竖屏
+                if (screenOrientation != ActivityInfo.SCREEN_ORIENTATION_PORTRAIT && orientation != ActivityInfo.SCREEN_ORIENTATION_REVERSE_PORTRAIT) {
+                	act.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+                }
+            } else if (orientation > 225 && orientation < 315) { //设置横屏
+                if (screenOrientation != ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE) {
+                	act.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+                }
+            } else if (orientation > 45 && orientation < 135) {// 设置反向横屏
+                if (screenOrientation != ActivityInfo.SCREEN_ORIENTATION_REVERSE_LANDSCAPE) {
+                	act.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_REVERSE_LANDSCAPE);
+                }
+            } 
 	    }  
 	}  
 
-	/**
-	 * 设置亮度
-	 * 
-	 * @param brightness
-	 */
-
-	/*
+	
+	/*e
 	 * public void setBrightness(float brightness) {
 	 * 
 	 * // if (lp.screenBrightness <= 0.1) { // return; // }
@@ -347,8 +352,14 @@ public class MyWebChromeClient extends WebChromeClient {
 	 * (pm.screenBrightness > 240 && pm.screenBrightness <= 300) {
 	 * pm.screenBrightness = 300; } act.getWindow().setAttributes(pm); }
 	 */
+     
+     /**
+ 	 * 设置亮度
+ 	 * 
+ 	 * @param brightness
+ 	 */
 
-	public void setBrightness(float brightness) {
+	  public void setBrightness(float brightness) {
 
 		// if (lp.screenBrightness <= 0.1) {
 		// return;

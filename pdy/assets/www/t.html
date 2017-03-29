@@ -1,0 +1,26 @@
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<script src="jquery-1.4.1.js"></script>
+<style>
+    -webkit-transform: translate3d(0, 0, 0)
+</style>
+<script>
+window.onerror=function(a,b,c){
+$('#log').append('error:'+a+b+c+'<br>');
+}
+window.lansum={
+setFixedInput:function(){}
+}
+</script>
+</head>
+<body > 
+
+<video controls width="480" height="280" poster="test.jpg" src="test.mp4" preload="none" ></video>
+<div id="log">
+logs
+</div>
+</body>
+</html>
+
+
