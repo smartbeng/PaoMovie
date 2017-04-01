@@ -1,15 +1,9 @@
 package com.pdy.webview;
 
 import java.io.File;
-import java.security.acl.LastOwnerException;
-import java.util.HashMap;
-import java.util.List;
-
-import org.aspectj.internal.lang.annotation.ajcITD;
 
 import com.pdy.mobile.BaseActivity;
 import com.pdy.mobile.R;
-import com.yixia.weibo.sdk.util.ToastUtils;
 
 import android.app.Activity;
 import android.content.Context;
@@ -20,14 +14,10 @@ import android.hardware.SensorManager;
 import android.media.AudioManager;
 import android.net.Uri;
 import android.os.Environment;
-import android.os.Vibrator;
 import android.provider.MediaStore;
 import android.util.Log;
-import android.view.GestureDetector;
-import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.OrientationEventListener;
-import android.view.SurfaceView;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.View.OnTouchListener;
@@ -37,16 +27,12 @@ import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 import android.widget.FrameLayout;
 import android.widget.FrameLayout.LayoutParams;
-import anet.channel.strategy.n;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 import in.srain.cube.views.ptr.PtrClassicFrameLayout;
 
 public class MyWebChromeClient extends WebChromeClient {
-
-	
 
 	public static final int FILECHOOSER_RESULTCODE = 1212;
 	private String mCameraFilePath;
@@ -54,25 +40,24 @@ public class MyWebChromeClient extends WebChromeClient {
 	private BaseActivity act;
 	WebViewScrollChanged webview;
 
-	private int screenWidth; // 屏幕宽度
-	private int screenHeight; // 屏幕高度
+	private double screenWidth; // 屏幕宽度
+	private double screenHeight; // 屏幕高度
 
-	private Vibrator vibrator;// 手机震动器
-	private FrameLayout video;
-	private int currentLight; // 当前屏幕的亮度
-
-	private GestureDetector mGestureDetector; // 手势监听类
+	private FrameLayout video;  //传过来的视频
+	
 	private TextView textView; // 滑动音量显示文本
 	private TextView tvLight; // 滑动亮度显示文本
 
-	int diffY; // move事件下的（Y起始坐标与结束坐标之差）
+	private double diffY; // move事件下的（Y起始坐标与结束坐标之差）
 
 	// 系统音量功能调取
-	AudioManager mAudioManager;
-	// 系统音量
-	int mVoice;
+	private AudioManager mAudioManager;
+	//最大声音
+	private int maxVoice;
+	// 当前声音
+	private int mVoice = -1;
 	// 隐藏显示参数
-	int hide = 0;
+	private int hide = 0;
 	// 返回图标
 	private ImageView showhide;
 
@@ -81,6 +66,8 @@ public class MyWebChromeClient extends WebChromeClient {
 		this.act = act;
 
 	}
+	
+	
 
 	RelativeLayout webviews;
 	// 一个回调接口使用的主机应用程序通知当前页面的自定义视图已被撤职
@@ -92,23 +79,17 @@ public class MyWebChromeClient extends WebChromeClient {
 		
 		
 		AlbumOrientationEventListener mAlbumOrientationEventListener = new AlbumOrientationEventListener(act, SensorManager.SENSOR_DELAY_NORMAL);  
-		    if (mAlbumOrientationEventListener.canDetectOrientation()) {  
-		        mAlbumOrientationEventListener.enable();  
+		if (mAlbumOrientationEventListener.canDetectOrientation()) {  
+		    mAlbumOrientationEventListener.enable();  
 		    } else {  
-		        Log.d("chengcj1", "Can't Detect Orientation");  
+		       Log.d("chengcj1", "Can't Detect Orientation");  
 		    }  
-		
-		
-		
 		
 		webviews = (RelativeLayout) act.findViewById(R.id.webviews);
 		int child = webviews.getChildCount();
 		RelativeLayout a = (RelativeLayout) webviews.getChildAt(child - 1);
 		PtrClassicFrameLayout b = (PtrClassicFrameLayout) a.getChildAt(0);
 		webview = (WebViewScrollChanged) b.getChildAt(0);
-		// webview = (WebViewScrollChanged) a.getChildAt(child-1);
-		// webview=(WebViewScrollChanged)act.findViewById(R.id.webView);
-		// 赋值给callback
 		customViewCallback = callback;
 		// 设置webView隐藏
 		act.isFull = true;
@@ -126,16 +107,10 @@ public class MyWebChromeClient extends WebChromeClient {
 		});
 		// 拿到横屏状态下的屏幕宽度
 		screenWidth = act.getResources().getDisplayMetrics().widthPixels;
-		// ****************************拿到height与x分屏
 		// 拿到横屏状态下的屏幕高度
 		screenHeight = act.getResources().getDisplayMetrics().heightPixels;
 		// 开启音量控制服务
 		mAudioManager = (AudioManager) act.getSystemService(Context.AUDIO_SERVICE);
-		// 获取声音控制权
-		mVoice = mAudioManager.getStreamVolume(AudioManager.STREAM_MUSIC);
-		// Toast.makeText(act.getApplicationContext(), width+"屏幕高度",
-		// Toast.LENGTH_SHORT).show();
-		// img=new ImageView(act.getApplicationContext());
 
 		/**
 		 * 设置滑动音量显示文本
@@ -148,18 +123,14 @@ public class MyWebChromeClient extends WebChromeClient {
 		 */
 		showhide.setBackgroundResource(R.drawable.ic_back);
 		LayoutParams params = new FrameLayout.LayoutParams(80, 70);
-		/*
-		 * params.gravity=Gravity.RIGHT; params.rightMargin=200;
-		 */
 		showhide.setLayoutParams(params);
-		// img.setBackgroundResource(R.drawable.ic_launcher);
+		
 		/**
 		 * 设置滑动亮度显示文本
 		 */
 		tvLight.setTextSize(20);
 		tvLight.setTextColor(Color.WHITE);
 		LayoutParams params2 = new FrameLayout.LayoutParams(20, 20);
-		params2.gravity = Gravity.RIGHT;
 		params2.rightMargin = 200;
 
 		// 将video放到当前视图中
@@ -190,7 +161,7 @@ public class MyWebChromeClient extends WebChromeClient {
 
 				@Override
 				public boolean onTouch(View v, MotionEvent event) {
-					v.setClickable(true);
+					v.setClickable(true); //处理4.x系统下不能进入滑动事件
 					// 检测到触摸事件后第一时间得到触摸点坐标 并赋值给x,y
 					switch (event.getAction()) {
 					// 触摸事件中绕不开的第一步，必然执行，将按下时的触摸点坐标赋值给 lastX 和 last Y
@@ -206,31 +177,43 @@ public class MyWebChromeClient extends WebChromeClient {
 							// tvLight.setVisibility(View.GONE);
 							hide = 0;
 						}
-
 						break;
 					// 触摸事件的第二步，这时候的x,y已经随着滑动操作产生了变化，用变化后的坐标减去首次触摸时的坐标得到 相对的偏移量
 					case MotionEvent.ACTION_MOVE:
 						// img.setVisibility(View.VISIBLE);
 						int endY = (int) event.getY();
-						diffY = lastY - endY;
-						double percent = ((double) (Math.abs(diffY) / (double) screenWidth));
-
-						mVoice = (int) (screenWidth * percent / 10);
-
+						diffY = Math.abs(lastY - endY);  //首次按下的坐标与离开时坐标的查值
 						if (lastX < (screenHeight / 2)) {
 							showhide.setVisibility(View.GONE);
 							hide = 0;
 							textView.setVisibility(View.VISIBLE);
-							if (diffY > 0) { // 表示音量在增加
+							/*if (diffY > 0) { // 表示音量在增加
 								mVoice++;
 								textView.setText("音量" + ((diffY / 10) - (diffY / 10 * 0.5)));
 							} else if (diffY < 0) { // 表示音量在递减
-								textView.setText("音量" + ((diffY / 10) - (diffY / 10 * 0.5)));
-								//textView.setText("静音X");
-								//mVoice = 0;
+								//textView.setText("音量" + ((diffY / 10) - (diffY / 10 * 0.5)));
+								textView.setText("静音X");
+								mVoice = 0;
+							}*/
+							if (mVoice == -1) {
+								mVoice = mAudioManager.getStreamVolume(AudioManager.STREAM_MUSIC);
 							}
-
-							mAudioManager.setStreamVolume(AudioManager.STREAM_MUSIC, mVoice, 0);
+							double percent = (double)(diffY / screenWidth); //滑动距离占屏幕的百分比
+							maxVoice = mAudioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC);
+						    double num = percent * maxVoice + mVoice;
+						    int index = (int)num;
+						    Log.e("fffff",""+index);
+							if (index > maxVoice){  
+						        index = maxVoice;
+							} else if (index >= 10) {
+						        textView.setText("音量"+100);
+						    } else if (index >= 5 && index < 10) {
+						    	textView.setText("音量"+60);
+						    } else if (index > 0 && index < 5) {
+						    	textView.setText("音量"+30);
+						    } else {
+						    }
+							mAudioManager.setStreamVolume(AudioManager.STREAM_MUSIC, index, 0);
 						} else if (lastX > (screenHeight / 2)) { // 进入亮度设置
 							showhide.setVisibility(View.GONE);
 							hide = 0;
@@ -263,14 +246,7 @@ public class MyWebChromeClient extends WebChromeClient {
 					}
 					return false;
 				}
-			});
-
-			if (focusedChild instanceof android.widget.VideoView) {
-				// android.widget.VideoView (typically API level <11)
-				android.widget.VideoView videoView = (android.widget.VideoView) focusedChild;
-
-			}
-
+			});			
 			/**
 			 * 设置屏幕亮度 lp = 0 全暗 ，lp= -1,根据系统设置， lp = 1; 最亮
 			 */
@@ -288,7 +264,6 @@ public class MyWebChromeClient extends WebChromeClient {
 		act.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
 		// 设置全屏
 		setFullScreen();
-
 	}
 	
 	/**
@@ -307,19 +282,12 @@ public class MyWebChromeClient extends WebChromeClient {
 	    }  	  
 	    @Override  
 	    public void onOrientationChanged(int orientation) {  
-	    	Log.e("屏幕旋转度数","" +orientation);
+	    	//Log.e("屏幕旋转度数","" +orientation);
 	    	int screenOrientation = act.getResources().getConfiguration().orientation;
 	        /*if (orientation == OrientationEventListener.ORIENTATION_UNKNOWN) {  
 	            return;  
 	        }  */
 	  
-	        //保证只返回四个方向  
-	       /* int newOrientation = ((orientation + 45) / 90 * 90) % 360;
-	        if (newOrientation == 180) {  
-	        	FrameLayout frame = new FrameLayout(act.getApplicationContext());
-	            //返回的mOrientation就是手机方向，为0°、90°、180°和270°中的一个  
-	        }*/  
-	        FrameLayout frame = new FrameLayout(act.getApplicationContext());
 	        if (((orientation >= 0) && (orientation < 45)) || (orientation > 315)) {//设置竖屏
                 if (screenOrientation != ActivityInfo.SCREEN_ORIENTATION_PORTRAIT && orientation != ActivityInfo.SCREEN_ORIENTATION_REVERSE_PORTRAIT) {
                 	act.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
@@ -337,22 +305,6 @@ public class MyWebChromeClient extends WebChromeClient {
 	}  
 
 	
-	/*e
-	 * public void setBrightness(float brightness) {
-	 * 
-	 * // if (lp.screenBrightness <= 0.1) { // return; // }
-	 * WindowManager.LayoutParams pm = act.getWindow().getAttributes();
-	 * pm.screenBrightness = pm.screenBrightness + brightness / 300.0f;
-	 * if(pm.screenBrightness > 0 && pm.screenBrightness <= 60){
-	 * pm.screenBrightness = 60; }else if (pm.screenBrightness > 60 &&
-	 * pm.screenBrightness <= 120) { pm.screenBrightness = 120; }else if
-	 * (pm.screenBrightness > 120 && pm.screenBrightness <= 180) {
-	 * pm.screenBrightness = 180; }else if (pm.screenBrightness > 180 &&
-	 * pm.screenBrightness <= 240) { pm.screenBrightness = 240; }else if
-	 * (pm.screenBrightness > 240 && pm.screenBrightness <= 300) {
-	 * pm.screenBrightness = 300; } act.getWindow().setAttributes(pm); }
-	 */
-     
      /**
  	 * 设置亮度
  	 * 
@@ -421,13 +373,11 @@ public class MyWebChromeClient extends WebChromeClient {
 	/**
 	 * 退出全屏
 	 */
+	// a&=b相当于 a = a&b
 	private void quitFullScreen() {
 		// 声明当前屏幕状态的参数并获取
 		final WindowManager.LayoutParams attrs = act.getWindow().getAttributes();
-		attrs.flags &= (~WindowManager.LayoutParams.FLAG_FULLSCREEN); // a
-																		// &=b相当于
-																		// a =
-																		// a&b
+		attrs.flags &= (~WindowManager.LayoutParams.FLAG_FULLSCREEN); 
 		act.getWindow().setAttributes(attrs);
 		act.getWindow().clearFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
 
