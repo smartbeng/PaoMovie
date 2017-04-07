@@ -4,6 +4,7 @@ import java.io.File;
 
 import com.pdy.mobile.BaseActivity;
 import com.pdy.mobile.R;
+import com.pdy.mobile.R.color;
 
 import android.app.Activity;
 import android.content.Context;
@@ -123,6 +124,7 @@ public class MyWebChromeClient extends WebChromeClient {
 		 */
 		showhide.setBackgroundResource(R.drawable.ic_back);
 		LayoutParams params = new FrameLayout.LayoutParams(80, 70);
+		params.setMargins(50, 50, 80, 80);
 		showhide.setLayoutParams(params);
 		
 		/**
@@ -132,8 +134,17 @@ public class MyWebChromeClient extends WebChromeClient {
 		tvLight.setTextColor(Color.WHITE);
 		LayoutParams params2 = new FrameLayout.LayoutParams(20, 20);
 		params2.rightMargin = 200;
-
+		
+		/**
+		 * 添加黑色背景图片遮挡因视频尺寸不够而造成的页面冲突问题（页面返回键与添加的返回键冲突）
+		 */
+		ImageView imageView = new ImageView(act);
+		imageView.setLayoutParams(new LayoutParams(android.view.ViewGroup.LayoutParams.MATCH_PARENT,android.view.ViewGroup.LayoutParams.MATCH_PARENT));
+		imageView.setImageResource(R.color.black);
+		
+		
 		// 将video放到当前视图中
+		video.addView(imageView);
 		video.addView(view);
 		textView.setVisibility(View.GONE);
 		showhide.setVisibility(View.GONE);
@@ -288,7 +299,7 @@ public class MyWebChromeClient extends WebChromeClient {
 	            return;  
 	        }  */
 	  
-	        if (((orientation >= 0) && (orientation < 45)) || (orientation > 315)) {//设置竖屏
+	       /* if (((orientation >= 0) && (orientation < 45)) || (orientation > 315)) {//设置竖屏
                 if (screenOrientation != ActivityInfo.SCREEN_ORIENTATION_PORTRAIT && orientation != ActivityInfo.SCREEN_ORIENTATION_REVERSE_PORTRAIT) {
                 	act.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
                 }
@@ -296,7 +307,8 @@ public class MyWebChromeClient extends WebChromeClient {
                 if (screenOrientation != ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE) {
                 	act.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
                 }
-            } else if (orientation > 45 && orientation < 135) {// 设置反向横屏
+            } else*/ 
+	    	if (orientation > 45 && orientation < 135) {// 设置反向横屏
                 if (screenOrientation != ActivityInfo.SCREEN_ORIENTATION_REVERSE_LANDSCAPE) {
                 	act.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_REVERSE_LANDSCAPE);
                 }
